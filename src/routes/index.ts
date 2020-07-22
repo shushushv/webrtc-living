@@ -7,21 +7,25 @@ export default [
   {
     key: 'room',
     path: '/room/:roomId',
-    component: Room
+    component: Room,
+    authenticate: true
   },
   {
     key: 'choose',
     path: '/choose',
-    component: Choose
+    component: Choose,
+    authenticate: false
   },
   {
     key: 'streamer',
     path: '/streamer',
-    component: Streamer
+    component: Streamer,
+    authenticate: true
   },
   {
     key: 'home',
     path: '/home',
-    component: Home
+    component: Home,
+    authenticate: true
   }
 ]
