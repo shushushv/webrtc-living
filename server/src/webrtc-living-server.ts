@@ -11,6 +11,7 @@ class WebRTCLivingServer {
     server.on('connection', socket => {
       log('new connect...');
       this._connect(socket);
+      log('size of connectors: ' + this.connectionList.length);
     });
   }
 
@@ -18,7 +19,7 @@ class WebRTCLivingServer {
     let conn = new Connection(socket);
     this.connectionList.push(conn);
 
-    socket.on('message', evt => conn.handleMsg(evt));
+    socket.on('message', (evt: string) => conn.handleMsg(evt));
     socket.on('close', () => {
       conn.destroy();
       this.connectionList = this.connectionList.filter(v => v !== conn);
